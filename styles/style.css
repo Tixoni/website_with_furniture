@@ -1,0 +1,392 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #2A254B;
+    line-height: 1.6;
+}
+
+header {
+    padding: 20px 60px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lcon_header{
+    height: 18px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 400;
+    color: #2A254B;
+}
+
+.pr_ic{
+    display: flex;
+    gap: 10px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 44px;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #726E8D;
+    font-size: 16px;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 16px;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 584px;
+}
+
+.hero-content {
+    background-color: #2A254B;
+    color: white;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero-content h1 {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 40px;
+}
+
+.hero-content p {
+    color: #fff;
+    opacity: 0.8;
+    margin-bottom: 40px;
+}
+
+.btn {
+    background-color: rgba(249, 249, 249, 0.15);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    font-size: 16px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.hero-image {
+    background-color: #89A5A8;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 40px;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.features {
+    padding: 60px;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 60px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    text-align: center;
+}
+
+.feature-icon {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.feature-item h3 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.feature-item p {
+    font-size: 16px;
+    color: #726E8D;
+    line-height: 1.5;
+}
+
+.products-section {
+    padding: 60px;
+}
+
+.products-section h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 32px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.product-card img {
+    width: 100%;
+    height: 375px;
+    object-fit: cover;
+    margin-bottom: 24px;
+}
+
+.product-card h3 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.product-card p {
+    font-size: 18px;
+    color: #2A254B;
+}
+
+.view-collection {
+    text-align: center;
+}
+
+.view-collection button {
+    background-color: #F9F9F9;
+    color: #2A254B;
+    border: none;
+    padding: 16px 32px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.popular-products {
+    padding: 60px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.popular-products h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 32px;
+}
+
+.popular-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.newsletter {
+    background-color: #F9F9F9;
+    padding: 80px 60px;
+    text-align: center;
+}
+
+.newsletter h2 {
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.newsletter p {
+    color: #726E8D;
+    margin-bottom: 32px;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    max-width: 470px;
+    margin: 0 auto;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 16px 32px;
+    border: none;
+    background-color: white;
+    font-size: 16px;
+}
+
+.newsletter-form button {
+    background-color: #2A254B;
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.brand-story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 603px;
+}
+
+.story-content {
+    padding: 80px 100px 80px 80px;
+    background-color: white;
+}
+
+.story-content h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 24px;
+    line-height: 1.4;
+}
+
+.story-content p {
+    color: #726E8D;
+    margin-bottom: 32px;
+    line-height: 1.8;
+}
+
+.story-content button {
+    background-color: #F9F9F9;
+    color: #2A254B;
+    border: none;
+    padding: 16px 32px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.story-image {
+    background: #FFF;
+}
+
+.story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+footer {
+    background-color: #2A254B;
+    color: white;
+    padding: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+.footer-section h3 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-newsletter input {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 12px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+}
+
+.footer-newsletter input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-newsletter button {
+    width: 100%;
+    padding: 16px;
+    background-color: white;
+    color: #2A254B;
+    border: none;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 24px;
+}
+
+@media (max-width: 768px) {
+    .hero,
+    .brand-story {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid,
+    .products-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .popular-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
