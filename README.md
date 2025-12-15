@@ -37,7 +37,7 @@
 
 ## Структура проекта
 
-```
+```**
 project/
 ├── index.html
 ├── README.md
