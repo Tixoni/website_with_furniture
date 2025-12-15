@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 ```markdown
 # Верстка сайта по макету на HTML и CSS
 
 **Ссылка на github pages :** [https://tixoni.github.io/website_with_furniture/]
 **Практические занятия:** 2, 3  
 **Тема:** Верстка и стилизация сайта по макету (вариант 2)
+=======
+
+# Верстка сайта по макету на HTML
+
+**Ссылка на github pages :[https://tixoni.github.io/website_with_furniture/]**
+**Практическое занятие:** 2  
+**Тема:** Верстка сайта по макету(вариант 2) на HTML
+>>>>>>> ca6304266dae5de0819a41cf7bda9b9d92a5c7ae
 
 ---
 
