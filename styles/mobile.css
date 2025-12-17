@@ -1,0 +1,116 @@
+/* ================= MOBILE STYLES — PRACTICE 5 ================= */
+
+/* ---------- TABLET (1024px and below) */
+@media (max-width: 1024px) {
+
+    body {
+        font-size: 16px;
+    }
+
+    .header_top {
+        padding: 10px 0;
+    }
+
+    .nav-menu {
+        gap: 30px;
+    }
+}
+
+/* ---------- MOBILE & TABLET (768px and below) */
+@media (max-width: 768px) {
+
+    /* Sticky header */
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: white;
+    }
+
+    /* Navigation layout */
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: white;
+        padding: 100px 30px 30px;
+        transition: right 0.4s ease;
+        z-index: 999;
+    }
+
+    nav.active {
+        right: 0;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu a {
+        display: block;
+        width: 100%;
+        padding: 15px 0;
+        font-size: 18px;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Overlay */
+    .nav-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+        z-index: 998;
+    }
+
+    .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* ---------- MOBILE (480px and below) */
+@media (max-width: 480px) {
+
+    body {
+        font-size: 17px; /* HIG recommendation */
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+}
+
+/* ---------- SCROLL TO TOP BUTTON */
+.scroll-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #2A254B;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 999;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
