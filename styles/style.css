@@ -47,7 +47,6 @@ header {
 
 .line {
     border-bottom: 2px solid #EBE9F1;
-    margin-top: 20px;
 }
 
 nav {
@@ -82,7 +81,7 @@ nav {
     margin-top: 50px;
     max-width: 100%;
     aspect-ratio: 1800/820;
-    margin-bottom: 170px;
+    margin-bottom: 20%;
 }
 
 .hero-content {
@@ -121,6 +120,7 @@ nav {
 .hero-image {
     display: flex;
     justify-content: center;
+    background-color: #83a9ac;
 }
 
 .hero-image img {
@@ -172,7 +172,7 @@ nav {
 }
 
 .products-section {
-    margin-top: 200px;
+    margin-top: 20%;
 }
 
 .products-section h2 {
@@ -444,6 +444,7 @@ footer {
     line-height: 150%;
 }
 
+
 .social-links {
     display: flex;
     gap: 30px;
@@ -452,28 +453,9 @@ footer {
     filter: brightness(0) invert(1);
 }
 
-@media (max-width: 768px) {
-    .hero,
-    .brand-story {
-        grid-template-columns: 1fr;
-    }
-
-    .features-grid,
-    .products-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .popular-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr 1fr;
-    }
+.burger {
+    display: none;
 }
-
-
-
 
 /* ==================================================================================== PRACTICE 3 ADDITIONS */
 
@@ -588,4 +570,3 @@ input:focus {
 .brand-story {
     animation: fadeIn 0.6s ease-in;
 }
-

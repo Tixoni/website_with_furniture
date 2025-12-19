@@ -10,19 +10,23 @@
 </head>
 <body>
     <header>
-        <div class = "header_top">
-            <img class = "lcon_header" src="assets/icons/Search.png">
+        <div class="header_top">
+            <img class="lcon_header" src="assets/icons/Search.png" alt="Search">
 
             <!--<div class="logo">Avion</div> -->
-            <img class="logo" src="assets/img/Лого.png">
+            <img class="logo" src="assets/img/Лого.png" alt="Avion logo">
 
-            <div class = "right_icon_in_header_top">
-                <img class = "lcon_header" src="assets/icons/Shopping--cart.png">
-                <img class = "lcon_header" src="assets/icons/User--avatar.png">
+            <div class="right_icon_in_header_top">
+                <img class="lcon_header" src="assets/icons/Shopping--cart.png" alt="Cart">
+                <img class="lcon_header" src="assets/icons/User--avatar.png" alt="User profile">
             </div>
+
+            <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mainNav">
+            </button>
+            <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
         </div>
         <div class="line"></div>
-        <nav>
+        <nav id="mainNav">
             <ul class="nav-menu">
                 <li><a href="#features">Plant pots</a></li>
                 <li><a href="#ceramics">Ceramics</a></li>
@@ -216,8 +220,6 @@
             </div>
         </div>
     </footer>
-
-    <button class="scroll-top" id="scrollTop" aria-label="Наверх"></button>
     <script src="./scripts/mobile_menu.js"></script>
 </body>
 </html>

@@ -1,51 +1,75 @@
-/* ================= MOBILE MENU & SCROLL TOP — PRACTICE 5 ================= */
+/* ================= MOBILE MENU & SCROLL TOP ================= */
 
-// Create overlay
-const overlay = document.createElement('div');
-overlay.className = 'nav-overlay';
-document.body.appendChild(overlay);
-
-// Elements
-const nav = document.querySelector('nav');
-const navLinks = document.querySelectorAll('.nav-menu a');
-const scrollTopBtn = document.getElementById('scrollTop');
-
-// Toggle menu
-function toggleMenu() {
-    nav.classList.toggle('active');
-    overlay.classList.toggle('active');
-    document.body.style.overflow =
-        nav.classList.contains('active') ? 'hidden' : '';
+// Создаем overlay (затемнение фона), если его еще нет
+let overlay = document.querySelector('.nav-overlay');
+if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    document.body.appendChild(overlay);
 }
 
-// Open menu by clicking logo area (fallback)
-document.querySelector('.header_top').addEventListener('click', (e) => {
-    if (window.innerWidth <= 768 && e.target.tagName === 'IMG') {
-        toggleMenu();
+// Элементы
+const navMenu = document.querySelector('.nav-menu'); // Целимся в список, как в CSS
+const burger = document.getElementById('burger');
+const scrollTopBtn = document.getElementById('scrollTop');
+
+// Функция переключения
+function toggleMenu() {
+    // Используем класс mobile-visible, который уже есть в твоем CSS
+    const isActive = navMenu.classList.toggle('mobile-visible');
+    overlay.classList.toggle('active');
+    
+    // Блокируем скролл основной страницы при открытом меню
+    document.body.style.overflow = isActive ? 'hidden' : '';
+
+    if (burger) {
+        // Меняем состояние бургера (крестик в CSS)
+        burger.setAttribute('aria-expanded', String(isActive));
     }
-});
+}
 
-// Close menu
-overlay.addEventListener('click', toggleMenu);
+// Клик по бургеру
+if (burger) {
+    burger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+    });
+}
 
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) toggleMenu();
+// Закрытие по клику на overlay или ссылки
+[overlay, navMenu].forEach(el => {
+    el.addEventListener('click', (e) => {
+        if (navMenu.classList.contains('mobile-visible')) {
+            // Если кликнули по ссылке или по фону — закрываем
+            if (e.target.tagName === 'A' || e.target === overlay) {
+                toggleMenu();
+            }
+        }
     });
 });
 
-// ESC key support
+// Поддержка клавиши Escape
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && nav.classList.contains('active')) {
+    if (e.key === 'Escape' && navMenu.classList.contains('mobile-visible')) {
         toggleMenu();
     }
 });
 
-// Scroll to top
+// Кнопка Наверх: Появление
 window.addEventListener('scroll', () => {
-    scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
+    if (scrollTopBtn) {
+        // Если прокрутили больше 300px — показываем кнопку
+        if (window.scrollY > 300) {
+            scrollTopBtn.style.display = 'flex';
+        } else {
+            scrollTopBtn.style.display = 'none';
+        }
+    }
 });
 
-scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+// Кнопка Наверх: Скролл
+if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}

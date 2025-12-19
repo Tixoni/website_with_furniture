@@ -1,191 +1,799 @@
-/* ===================================================================
-   MOBILE & RESPONSIVE STYLES — PRACTICE 5
-   =================================================================== */
+/* ========== ТЕЛЕФОНЫ (≤ 600px) ========== */
+@media (max-width: 600px) {
+    body { 
+        font-size: 17px !important; 
+    }
 
+    /* Увеличиваем заголовки, сохраняя их превосходство над обычным текстом */
+    h1 { font-size: 2.2em !important; } /* Самый крупный */
+    h2 { font-size: 1.8em !important; }
+    h3 { font-size: 1.5em !important; }
+    h4 { font-size: 1.2em !important; }
+    
+    /* Убеждаемся, что все остальные элементы (ссылки, кнопки, спаны) 
+       подтянулись к базовому размеру body */
+    p, a, span, button, input, li { 
+        font-size: 1em !important; 
+    }
 
-/* --------- ≤ 1200px (large tablets / small laptops) */
-@media (max-width: 1200px) {
+    /* --- 1. Общие настройки и Сетки --- */
     body {
-        margin: 0 60px;
+        font-family: 'Inter', system-ui, sans-serif;
+        color: #2A254B;
+        line-height: 150%;
+        font-size: 16px;
+        margin: 0px 5%;
+        overflow-x: hidden;
     }
 
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
+    /* Плавный переход для всех интерактивных элементов */
+    button, a, input {
+        transition: all 0.3s ease;
     }
 
-    .products-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-
-/* --------- ≤ 992px (tablets) */
-@media (max-width: 992px) {
-    body {
-        margin: 0 40px;
-    }
-
-    header {
-        margin: 0 -40px;
-    }
-
-    .hero {
-        grid-template-columns: 1fr;
-        aspect-ratio: auto;
-    }
-
-    .hero-content {
-        padding: 60px;
-    }
-
-    .hero-image {
-        background-color: rgb(131, 169, 172);
-    }
-
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .menu {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-
-/* --------- ≤ 768px (mobile & small tablets) */
-@media (max-width: 768px) {
-
-    /* Global spacing */
-    body {
-        margin: 0 20px;
-    }
-
-    header,
-    footer,
-    .newsletter,
-    .brand-story {
-        margin: 0 -20px;
-    }
-
-    /* Sticky header */
-    header {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        background: white;
-    }
-
-    /* Hamburger navigation */
-    nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 280px;
-        height: 100vh;
-        background: white;
-        padding: 100px 30px 30px;
-        transition: right 0.4s ease;
-        z-index: 999;
-    }
-
-    nav.active {
-        right: 0;
-    }
-
-    .nav-menu {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-    }
-
-    .nav-menu li {
-        width: 100%;
-    }
-
-    .nav-menu a {
-        display: block;
-        width: 100%;
-        padding: 15px 0;
-        font-size: 18px;
-        border-bottom: 1px solid #eee;
-    }
-
-    /* Overlay */
-    .nav-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.5);
-        opacity: 0;
-        visibility: hidden;
-        transition: 0.3s ease;
-        z-index: 998;
-    }
-
-    .nav-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    /* Layout adjustments */
     .features-grid,
     .products-grid,
+    .hero {
+        grid-template-columns: repeat(1, 1fr); 
+    }
+
     .popular-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
     }
 
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .menu {
-        grid-template-columns: 1fr;
+    .hero, .features, .products-section, .popular-products {
         margin-left: 0;
+        margin-right: 0;
     }
 
+    /* --- 2. Brand Story --- */
+    .brand-story {
+        display: flex;
+        min-height: 603px;
+        margin: 0 -5% !important;
+        padding: 0 !important;
+        flex-direction: column;
+    }
+    
     .story-content {
-        padding: 40px;
+        padding: 40px 20px !important;
+    }
+    
+    .story-image {
+        padding: 0 !important;
     }
 
     .story-content button {
-        margin-top: 40px;
-    }
-}
-
-
-/* --------- ≤ 576px (mobile portrait) */
-@media (max-width: 576px) {
-    .hero-content h1 {
-        font-size: 28px;
-    }
-
-    .newsletter h2 {
-        font-size: 28px;
-    }
-
-    .newsletter-form {
-        flex-direction: column;
-    }
-
-    .newsletter-form button {
+        background-color: #F9F9F9;
+        color: #2A254B;
+        border: none;
+        padding: 16px 32px;
+        font-size: 16px;
+        line-height: 150%;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-left: 0 !important;
         width: 100%;
     }
 
-    .footer-bottom {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
+    /* Микроанимация нажатия */
+    .story-content button:active {
+        background-color: #EBEBEB;
+        transform: scale(0.98);
     }
+
+    /* --- 3. View Collection Button --- */
+    .view-collection button {
+        background-color: #cac6c65f;
+        color: #2A254B;
+        border: none;
+        padding: 22px 42px;
+        font-size: 16px;
+        line-height: 150%;
+        cursor: pointer;
+        margin-bottom: 50px;
+        width: 100%;
+    }
+
+    .view-collection button:active {
+        background-color: #b0aeae;
+        transform: scale(0.98);
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    /* --- 4. Newsletter (Верхний/Белый) --- */
+    .newsletter {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 20px 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inside_newsletter {
+        background-color: white;
+        padding: 4.5%;
+        width: 100% !important; 
+        max-width: 100vw;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        max-width: 470px;            
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .newsletter-form input {
+        flex: 1;
+        padding: 23px 24px;
+        border: 3px gray solid;
+        background-color: #F9F9F9;
+        font-size: 16px;
+        line-height: 150%;
+        color: #2A254B;
+    }
+
+    /* Анимация фокуса на поле ввода */
+    .newsletter-form input:focus {
+        border-color: #2A254B;
+        outline: none;
+        background-color: #fff;
+    }
+
+    /* --- 5. Header (Фиксированный внизу) --- */
+    header {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: auto;
+        z-index: 1000;
+        background: white;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+        margin: 0 -5.5% !important;
+        border-top: 1px solid #EBE9F1;
+    }
+
+    .header_top {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .line {
+        display: none;
+    }
+
+    .logo {
+        position: static;
+        top: auto;
+        left: auto;
+        transform: none;
+    }
+
+    .header_top img[src*="Лого.png"] {
+        height: 0px;
+    }
+
+    .right_icon_in_header_top {
+        display: contents;
+        gap: 15px;
+    }
+
+    .lcon_header {
+        height: 40px;
+        width: 40px;
+    }
+
+    /* Анимация иконок при нажатии */
+    .lcon_header:active {
+        opacity: 0.6;
+        transform: scale(0.9);
+    }
+
+    .burger {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        order: 4;
+    }
+    
+    .burger::before,
+    .burger::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background-color: #2A254B;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .burger::before { top: 12px; box-shadow: 0 8px 0 #2A254B; }
+    .burger::after { bottom: 12px; }
+    
+    .burger[aria-expanded="true"]::before {
+        transform: rotate(45deg);
+        top: 19px;
+        box-shadow: none;
+    }
+    
+    .burger[aria-expanded="true"]::after {
+        transform: rotate(-45deg);
+        bottom: 19px;
+    }
+
+    .scroll-top {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        order: 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        padding: 0;
+    }
+
+    .scroll-top:active {
+        background-color: #2A254B;
+        color: white;
+    }
+
+    /* Мобильная навигация */
+    nav {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    .nav-menu {
+        display: none; 
+    }
+    
+    .nav-menu.mobile-visible {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        width: 100vw;
+        background: white;
+        padding: 20px 5%;
+        box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+        border-radius: 20px 20px 0 0; /* Округлил углы для мягкости */
+        align-items: flex-end;
+        text-align: right;
+        box-sizing: border-box;
+        margin: 0;
+        /* Анимация появления */
+        animation: slideUp 0.4s ease-out;
+    }
+
+    @keyframes slideUp {
+        from { transform: translateY(100%); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .nav-menu li {
+        flex: 1;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .nav-menu.mobile-visible li {
+        text-align: right;
+    }
+
+    .nav-menu a {
+        font-size: 12px;
+        padding: 8px 0;
+        color: #2A254B;
+        display: block;
+        text-decoration: none;
+    }
+
+    .nav-menu.mobile-visible a {
+        font-size: 18px; /* Немного увеличил для удобства нажатия пальцем */
+        padding: 15px 0;
+    }
+
+    .nav-menu.mobile-visible a:active {
+        color: #4E4D93;
+        padding-right: 10px; /* Эффект небольшого сдвига */
+    }
+
+    /* --- 6. Footer --- */
+    footer {
+        background-color: #2A254B;
+        color: white;
+        padding: 30px 20px 70px !important;
+        margin: 0 -5% !important;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .menu {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin-left: 0px;
+        margin-bottom: 0px;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .inpyt_form-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-newsletter input {
+        flex: 1;
+        padding: 23px 24px;
+        border: 1px solid rgba(255,255,255,0.2);
+        background-color: rgba(255,255,255,0.1);
+        font-size: 16px;
+        line-height: 150%;
+        color: #FFFFFF !important;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .footer-newsletter input:focus {
+        background-color: rgba(255,255,255,0.2);
+        border-color: #fff;
+        outline: none;
+    }
+
+    .footer-newsletter input::placeholder {
+        color: #fff;
+        opacity: 0.5;
+    }
+
+    .footer-newsletter button {
+        padding: 16px 32px;
+        background-color: white;
+        color: #2A254B;
+        border: none;
+        font-size: 16px;
+        line-height: 150%;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .footer-newsletter button:active {
+        opacity: 0.8;
+        transform: scale(0.98);
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 24px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 30px;
+        height: 34px;
+        color: white;
+        filter: brightness(0) invert(1);
+    }
+
+    .social-links a:active {
+        transform: translateY(-3px);
+    }
+  
 }
 
 
-/* --------- ≤ 480px (small mobile / iOS) */
-@media (max-width: 480px) {
-    body {
-        font-size: 17px; /* HIG recommendation */
+/* ========== ПЛАНШЕТЫ (601px - 1024px) ========== */
+@media (min-width: 601px) and (max-width: 1024px) {
+    body { 
+        font-size: 24px !important; 
     }
 
-    .hero-content h1 {
-        font-size: 28px;
+    h1 { font-size: 2.1em !important; }
+    h2 { font-size: 1.7em !important; }
+    h3 { font-size: 1.4em !important; }
+    h4 { font-size: 1.1em !important; }
+
+    p, a, span, button, input, li { 
+        font-size: 1em !important; 
+    }
+
+    /* --- 1. Общие настройки и Сетки --- */
+    body {
+        font-family: 'Inter', system-ui, sans-serif;
+        color: #2A254B;
+        line-height: 150%;
+        font-size: 16px;
+        margin: 0px 5%; /* Твой отступ */
+        overflow-x: hidden;
+        padding-bottom: 80px; /* Чтобы фиксированный хедер не перекрывал контент */
+    }
+
+    /* Плавный переход для всех интерактивных элементов */
+    button, a, input {
+        transition: all 0.3s ease;
+    }
+
+    /* Планшетная сетка в 2 колонки */
+    .features-grid,
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        width: 100%;
+    }
+
+    /* Твоя схема: один большой сверху, два в ряд снизу */
+    .popular-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+        width: 100%;
+    }
+
+    .popular-grid > *:first-child {
+        grid-column: span 2;
+    }
+
+    .popular-grid > *:first-child img {
+        width: 100%;
+        height: 400px; /* Высота для планшета */
+        object-fit: cover;
+    }
+
+    .hero {
+        grid-template-columns: 1fr; 
+    }
+
+    .hero, .features, .products-section, .popular-products {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* --- 2. Brand Story (Вертикально как в телефоне) --- */
+    .brand-story {
+        display: flex;
+        min-height: 603px;
+        margin: 0 -5.5% !important; /* Компенсируем отступ body */
+        padding: 0 !important;
+        flex-direction: column;
+    }
+    
+    .story-content {
+        padding: 40px 20px !important;
+        height: auto; /* На планшете контента может быть больше */
+    }
+    
+    .story-image {
+        padding: 0 !important;
+    }
+
+    .story-content button {
+        background-color: #F9F9F9;
+        color: #2A254B;
+        border: none;
+        padding: 16px 32px;
+        font-size: 16px;
+        line-height: 150%;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-left: 0 !important;
+        width: 100%;
+    }
+
+    .story-content button:active {
+        background-color: #EBEBEB;
+        transform: scale(0.98);
+    }
+
+    /* --- 3. View Collection Button --- */
+    .view-collection button {
+        background-color: #cac6c65f;
+        color: #2A254B;
+        border: none;
+        padding: 22px 42px;
+        font-size: 16px;
+        line-height: 150%;
+        cursor: pointer;
+        margin-bottom: 50px;
+        width: 100%;
+    }
+
+    .view-collection button:active {
+        background-color: #b0aeae;
+        transform: scale(0.98);
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    /* --- 4. Newsletter (В один ряд для планшета) --- */
+    .newsletter {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 20px 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inside_newsletter {
+        background-color: white;
+        padding: 4.5%;
+        width: 100% !important; 
+        max-width: 100vw;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .newsletter-form {
+        display: flex;
+        flex-direction: row; /* На планшете удобнее в ряд */
+        gap: 0;
+        max-width: 100%; 
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .newsletter-form input {
+        flex: 2;
+        padding: 23px 24px;
+        border: 3px gray solid;
+        background-color: #F9F9F9;
+        font-size: 16px;
+        line-height: 150%;
+        color: #2A254B;
+    }
+
+    .newsletter-form input:focus {
+        border-color: #2A254B;
+        outline: none;
+        background-color: #fff;
+    }
+
+    .newsletter-form button {
+        padding: 32px 32px;
+        width: 25%;
+    }
+
+    /* --- 5. Header (ТОЧНО КАК НА ТЕЛЕФОНЕ) --- */
+    header {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: auto;
+        z-index: 1000;
+        background: white;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+        margin: 0 -5.5% !important; /* Твой оригинальный отступ */
+        border-top: 1px solid #EBE9F1;
+    }
+
+    .header_top {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .line, .logo {
+        display: none;
+    }
+
+    .header_top img[src*="Лого.png"] {
+        height: 0px;
+    }
+
+    .right_icon_in_header_top {
+        display: contents;
+        gap: 15px;
+    }
+
+    .lcon_header {
+        height: 40px;
+        width: 40px;
+    }
+
+    .lcon_header:active {
+        opacity: 0.6;
+        transform: scale(0.9);
+    }
+
+    .burger {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        order: 4;
+    }
+    
+    .burger::before,
+    .burger::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background-color: #2A254B;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .burger::before { top: 12px; box-shadow: 0 8px 0 #2A254B; }
+    .burger::after { bottom: 12px; }
+    
+    .burger[aria-expanded="true"]::before {
+        transform: rotate(45deg);
+        top: 19px;
+        box-shadow: none;
+    }
+    
+    .burger[aria-expanded="true"]::after {
+        transform: rotate(-45deg);
+        bottom: 19px;
+    }
+
+    .scroll-top {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        order: 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        padding: 0;
+    }
+
+    .scroll-top:active {
+        background-color: #2A254B;
+        color: white;
+    }
+
+    /* Планшетная навигация (мобильный стиль) */
+    nav {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    .nav-menu {
+        display: none; 
+    }
+    
+    .nav-menu.mobile-visible {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        width: 100vw;
+        background: white;
+        padding: 20px 5%;
+        box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+        border-radius: 20px 20px 0 0;
+        align-items: flex-end;
+        text-align: right;
+        box-sizing: border-box;
+        margin: 0;
+        animation: slideUp 0.4s ease-out;
+    }
+
+    .nav-menu.mobile-visible a {
+        font-size: 18px;
+        padding: 15px 0;
+        color: #2A254B;
+        display: block;
+        text-decoration: none;
+    }
+
+    .nav-menu.mobile-visible a:active {
+        color: #4E4D93;
+        padding-right: 10px;
+    }
+
+    /* --- 6. Footer --- */
+    footer {
+        background-color: #2A254B;
+        color: white;
+        padding: 30px 20px 30px !important;
+        margin: 0 -5.5% !important;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .menu {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-left: 0px;
+        margin-bottom: 20px;
+        gap: 10px;
+    }
+
+    .footer-newsletter input {
+        flex: 1;
+        padding: 23px 24px;
+        border: 1px solid rgba(255,255,255,0.2);
+        background-color: rgba(255,255,255,0.1);
+        font-size: 16px;
+        line-height: 150%;
+        color: #FFFFFF !important;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .footer-newsletter button {
+        padding: 32px 32px;
+        background-color: white;
+        color: #2A254B;
+        border: none;
+        font-size: 16px;
+        line-height: 150%;
+        cursor: pointer;
+        width: 25%;
+    }
+
+    .footer-newsletter button:active {
+        opacity: 0.8;
+        transform: scale(0.98);
+    }
+
+    .social-links {
+        display: flex;
+        gap: 30px;
+        height: 34px;
+        color: white;
+        filter: brightness(0) invert(1);
     }
 }
