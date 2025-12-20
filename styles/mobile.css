@@ -28,8 +28,8 @@
         line-height: 150%;
         font-size: 16px;
         
-        margin: 0 !important; /* Принудительно обнуляем внешние отступы */
-        padding: 0 5% 100px 5% !important; /* Добавляем нижний отступ, чтобы хедер не перекрывал контент */
+        margin: 0 !important; 
+        padding: 0 5% 18.44% 5% !important;
         overflow-x: hidden;
         width: 100%;
         position: relative;
@@ -352,9 +352,8 @@
     footer {
         background-color: #2A254B;
         color: white;
-        padding: 30px 5% 100px !important; /* Настраиваем внутренние отступы */
+        padding: 30px 5% 10px !important;
         margin-left: -5.3% !important;
-        margin-right: -5.3% !important;
         width: calc(100% + 10.6%) !important;
     }
 
@@ -442,7 +441,6 @@
     }
 }
 
-
 /* ========== ПЛАНШЕТЫ (601px - 1024px) ========== */
 @media (min-width: 601px) and (max-width: 1024px) {
     body { 
@@ -464,9 +462,12 @@
         color: #2A254B;
         line-height: 150%;
         font-size: 16px;
-        margin: 0px 5%; /* Твой отступ */
+        margin: 0 5% 5%; /* Твой отступ */
         overflow-x: hidden;
-        padding-bottom: 80px; /* Чтобы фиксированный хедер не перекрывал контент */
+        padding-bottom: 40px; 
+        margin: 0px 5%; 
+        overflow-x: hidden;
+        padding-bottom: 80px; 
     }
 
     /* Плавный переход для всех интерактивных элементов */
@@ -821,4 +822,3 @@
         filter: brightness(0) invert(1);
     }
 }
-
