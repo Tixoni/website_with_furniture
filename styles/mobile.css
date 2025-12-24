@@ -10,7 +10,7 @@
     }
 
     /* Увеличиваем заголовки, сохраняя их превосходство над обычным текстом */
-    h1 { font-size: 2.2em !important; } /* Самый крупный */
+    h1 { font-size: 1.9em !important; } /* Самый крупный */
     h2 { font-size: 1.8em !important; }
     h3 { font-size: 1.5em !important; }
     h4 { font-size: 1.2em !important; }
@@ -29,7 +29,7 @@
         font-size: 16px;
         
         margin: 0 !important; 
-        padding: 0 5% 18.44% 5% !important;
+        padding: 0% 5% 0% 5% !important;
         overflow-x: hidden;
         width: 100%;
         position: relative;
@@ -168,27 +168,28 @@
 
     /* --- 5. Header (Фиксированный внизу) --- */
     header {
-    position: fixed !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    top: auto !important;
-    width: auto !important; /* Убираем 100%, так как left/right: 0 сами растянут его */
-    
-    z-index: 1000;
-    background: white;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    
-    /* Внутренние отступы элементов внутри хедера */
-    padding: 10px 15px !important; 
-    
-    /* Сброс всех внешних влияний */
-    margin: 0 !important;
-    border-top: 1px solid #EBE9F1;
-    
-    /* Гарантируем, что padding не увеличит ширину */
-    box-sizing: border-box !important;
-}
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        bottom: auto !important;
+        width: auto !important; /* Убираем 100%, так как left/right: 0 сами растянут его */
+        
+        z-index: 1000;
+        background: white;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        
+        /* Внутренние отступы элементов внутри хедера */
+        padding: 10px 15px !important; 
+        
+        /* Сброс всех внешних влияний */
+        margin: 0 !important;
+        border-top: 1px solid #EBE9F1;
+        
+        /* Гарантируем, что padding не увеличит ширину */
+        box-sizing: border-box !important;
+    }
 
     /* Исправляем контейнер внутри хедера */
     .header_top {
@@ -213,7 +214,7 @@
     }
 
     .header_top img[src*="Лого.png"] {
-        height: 0px;
+        height: 30px;
     }
 
     .right_icon_in_header_top {
@@ -242,7 +243,7 @@
         border: none;
         cursor: pointer;
         position: relative;
-        order: 4;
+        order: 5;
     }
     
     .burger::before,
@@ -270,15 +271,18 @@
     }
 
     .scroll-top {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        order: 3;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 10px;
-        padding: 0;
+    position: fixed;
+    right: 20px;
+    bottom: 90px; /* зона большого пальца */
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 900;
     }
 
     .scroll-top:active {
@@ -300,19 +304,30 @@
     }
     
     .nav-menu.mobile-visible {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    bottom: 100%; /* Выезжает вверх над хедером */
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
+        display: flex;           /* ОШИБКА БЫЛА ТУТ: Меню было display: none */
+        flex-direction: column;  /* Выстраиваем пункты в столбик */
+        position: fixed;
+        top: 70px;               /* Подберите под высоту вашего хедера */
+        left: 65%;
+        right: 0;
+        bottom: 0%;
+
+        background: white;
+        padding: 20px 5%;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        border-radius: 0 0 20px 20px;
+
+        z-index: 20;
+        align-items: flex-end; 
     
-    background: white;
-    padding: 20px 5%;
-    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
-    border-radius: 20px 20px 0 0;
-    box-sizing: border-box !important;
+        /* 2. Прижимаем содержимое к нижнему краю */
+        /* Чтобы "низ" существовал, задаем минимальную высоту, иначе меню будет схлопнуто по высоте текста */
+        justify-content: flex-start; 
+        min-height: 250px; 
+        
+        /* Внутренние отступы, чтобы текст не лип к самому краю экрана */
+        padding: 20px 5% !important; 
+        box-sizing: border-box;
     }
 
     @keyframes slideUp {
@@ -464,10 +479,9 @@
         font-size: 16px;
         margin: 0 5% 5%; /* Твой отступ */
         overflow-x: hidden;
-        padding-bottom: 40px; 
+        padding-bottom: 0px; 
         margin: 0px 5%; 
         overflow-x: hidden;
-        padding-bottom: 80px; 
     }
 
     /* Плавный переход для всех интерактивных элементов */
@@ -620,35 +634,50 @@
 
     /* --- 5. Header (ТОЧНО КАК НА ТЕЛЕФОНЕ) --- */
     header {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        top: auto;
-        z-index: 1000;
-        background: white;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-        padding: 10px 20px;
-        margin: 0 -5.5% !important; /* Твой оригинальный отступ */
-        border-top: 1px solid #EBE9F1;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+
+    z-index: 1000;
+    background: white;
+    padding: 10px 15px !important;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-bottom: 1px solid #EBE9F1;
+
+    margin: 0 !important;
+    box-sizing: border-box !important;
     }
 
+
+    /* Исправляем контейнер внутри хедера */
     .header_top {
-        margin-bottom: 10px;
+        margin: 0 auto !important;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between; /* Распределяем иконки по краям */
         align-items: center;
         gap: 10px;
-        flex-wrap: wrap;
+        width: 100%;
+        max-width: 100%;
     }
 
-    .line, .logo {
+    .line {
         display: none;
     }
 
-    .header_top img[src*="Лого.png"] {
-        height: 0px;
+    .logo {
+        position: static;
+        top: auto;
+        left: auto;
+        transform: none;
     }
+
+    .header_top img[src*="Лого.png"] {
+        height: 30px;
+    }
+
 
     .right_icon_in_header_top {
         display: contents;
@@ -675,7 +704,7 @@
         border: none;
         cursor: pointer;
         position: relative;
-        order: 4;
+        order: 5;
     }
     
     .burger::before,
@@ -702,16 +731,20 @@
         bottom: 19px;
     }
 
+
     .scroll-top {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        order: 3;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 10px;
-        padding: 0;
+    position: fixed;
+    right: 20px;
+    bottom: 200px; /* зона большого пальца */
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 100;
     }
 
     .scroll-top:active {
@@ -725,7 +758,7 @@
         height: auto;
         display: flex;
         justify-content: center;
-        margin-top: 10px;
+        margin-top: 0px;
     }
     
     .nav-menu {
@@ -733,22 +766,32 @@
     }
     
     .nav-menu.mobile-visible {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        bottom: 100%;
-        left: 0;
-        width: 100vw;
+        display: flex;           /* ОШИБКА БЫЛА ТУТ: Меню было display: none */
+        flex-direction: column;  /* Выстраиваем пункты в столбик */
+        position: fixed;
+        top: 60px;               /* Подберите под высоту вашего хедера */
+        left: 75%;
+        right: 0;
+        bottom: 0%;
+
         background: white;
         padding: 20px 5%;
-        box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
-        border-radius: 20px 20px 0 0;
-        align-items: flex-end;
-        text-align: right;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        border-radius: 0 0 20px 20px;
+
+        z-index: 20;
+        align-items: flex-end; 
+    
+        /* 2. Прижимаем содержимое к нижнему краю */
+        /* Чтобы "низ" существовал, задаем минимальную высоту, иначе меню будет схлопнуто по высоте текста */
+        justify-content: flex-end; 
+        min-height: 250px; 
+        
+        /* Внутренние отступы, чтобы текст не лип к самому краю экрана */
+        padding: 20px 5% !important; 
         box-sizing: border-box;
-        margin: 0;
-        animation: slideUp 0.4s ease-out;
     }
+
 
     .nav-menu.mobile-visible a {
         font-size: 18px;
