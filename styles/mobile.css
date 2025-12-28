@@ -35,6 +35,25 @@
         position: relative;
     }
 
+    .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.69); /* Цвет затемнения (черный с 50% прозрачностью) */
+    z-index: 15; /* Должен быть ниже меню (у вас оно 20), но выше контента страницы */
+    opacity: 0;
+    pointer-events: none; /* Чтобы оверлей не мешал нажимать на кнопки, когда меню закрыто */
+    transition: opacity 0.3s ease;
+    }
+
+    /* Класс, который будет добавляться при открытии меню */
+    .menu-overlay.active {
+        opacity: 1;
+        pointer-events: auto; /* Делаем его кликабельным */
+    }
+
     /* Плавный переход для всех интерактивных элементов */
     button, a, input {
         transition: all 0.3s ease;
@@ -484,6 +503,25 @@
         overflow-x: hidden;
     }
 
+    .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.69); /* Цвет затемнения (черный с 50% прозрачностью) */
+    z-index: 15; /* Должен быть ниже меню (у вас оно 20), но выше контента страницы */
+    opacity: 0;
+    pointer-events: none; /* Чтобы оверлей не мешал нажимать на кнопки, когда меню закрыто */
+    transition: opacity 0.3s ease;
+    }
+
+    /* Класс, который будет добавляться при открытии меню */
+    .menu-overlay.active {
+        opacity: 1;
+        pointer-events: auto; /* Делаем его кликабельным */
+    }
+
     /* Плавный переход для всех интерактивных элементов */
     button, a, input {
         transition: all 0.3s ease;
@@ -766,28 +804,24 @@
     }
     
     .nav-menu.mobile-visible {
-        display: flex;           /* ОШИБКА БЫЛА ТУТ: Меню было display: none */
-        flex-direction: column;  /* Выстраиваем пункты в столбик */
+        display: flex;           
+        flex-direction: column;  
         position: fixed;
-        top: 60px;               /* Подберите под высоту вашего хедера */
-        left: 75%;
+        top: 60px;               
+        
         right: 0;
         bottom: 0%;
 
         background: white;
-        padding: 20px 5%;
         box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         border-radius: 0 0 20px 20px;
 
         z-index: 20;
         align-items: flex-end; 
     
-        /* 2. Прижимаем содержимое к нижнему краю */
-        /* Чтобы "низ" существовал, задаем минимальную высоту, иначе меню будет схлопнуто по высоте текста */
-        justify-content: flex-end; 
+        justify-content: space-between;
         min-height: 250px; 
         
-        /* Внутренние отступы, чтобы текст не лип к самому краю экрана */
         padding: 20px 5% !important; 
         box-sizing: border-box;
     }

@@ -1,17 +1,10 @@
 /* ================= MOBILE MENU & SCROLL TOP ================= */
 
-// Создаем overlay (затемнение фона), если его еще нет
-let overlay = document.querySelector('.nav-overlay');
-if (!overlay) {
-    overlay = document.createElement('div');
-    overlay.className = 'nav-overlay';
-    document.body.appendChild(overlay);
-}
-
 // Элементы
 const navMenu = document.querySelector('.nav-menu'); // Целимся в список, как в CSS
 const burger = document.getElementById('burger');
 const scrollTopBtn = document.getElementById('scrollTop');
+const overlay = document.getElementById('overlay');
 
 // Функция переключения
 function toggleMenu() {
@@ -73,3 +66,21 @@ if (scrollTopBtn) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
+
+burgerBtn.addEventListener('click', () => {
+    // Ваша текущая логика
+    const expanded = burgerBtn.getAttribute('aria-expanded') === 'true';
+    burgerBtn.setAttribute('aria-expanded', !expanded);
+    
+    navMenu.classList.toggle('mobile-visible');
+    
+    // Новая логика для затемнения
+    overlay.classList.toggle('active');
+});
+
+// Закрытие меню при клике на само затемнение
+overlay.addEventListener('click', () => {
+    burgerBtn.setAttribute('aria-expanded', 'false');
+    navMenu.classList.remove('mobile-visible');
+    overlay.classList.remove('active');
+});
