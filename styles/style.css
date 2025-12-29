@@ -570,3 +570,8 @@ input:focus {
 .brand-story {
     animation: fadeIn 0.6s ease-in;
 }
+
+
+.scroll-top {
+    display: none;
+}
